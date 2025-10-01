@@ -1,0 +1,1 @@
+ALTER TABLE "service_requests" ADD COLUMN "time_spent" integer;

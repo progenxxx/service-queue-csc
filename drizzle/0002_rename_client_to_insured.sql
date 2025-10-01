@@ -1,0 +1,1 @@
+ALTER TABLE "service_requests" RENAME COLUMN "client" TO "insured";

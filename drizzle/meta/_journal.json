@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1759245817409,
+      "tag": "0000_omniscient_nighthawk",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1759248630309,
+      "tag": "0001_overrated_groot",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1759250000000,
+      "tag": "0002_rename_client_to_insured",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1759250100000,
+      "tag": "0003_add_time_spent",
+      "breakpoints": true
+    }
+  ]
+}
