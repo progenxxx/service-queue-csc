@@ -94,6 +94,7 @@ export default function CustomerAdminSettingsPage() {
   const navigation = [
     { name: 'Create Request', href: '/customer', icon: Building2, current: false },
     { name: 'Summary', href: '/customer/summary', icon: Building2, current: false },
+    { name: 'Insured Accounts', href: '/customer/insured-accounts', icon: Building2, current: false },
     { name: 'Reports', href: '/customer/reports', icon: BarChart3, current: false },
     { name: 'Admin Settings', href: '/customer/admin/settings', icon: Settings, current: true, onClick: handleRefreshSettings }
   ];

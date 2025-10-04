@@ -48,6 +48,9 @@ interface ReportData {
 const getNavigation = (userRole: string) => [
   { name: 'Create Request', href: '/customer', icon: Building2, current: false },
   { name: 'Summary', href: '/customer/summary', icon: Building2, current: false },
+  ...(userRole === 'customer_admin'
+    ? [{ name: 'Insured Accounts', href: '/customer/insured-accounts', icon: Building2, current: false }]
+    : []),
   { name: 'Reports', href: '/customer/reports', icon: BarChart3, current: true },
   ...(userRole === 'customer_admin'
     ? [{ name: 'Admin Settings', href: '/customer/admin/settings', icon: Settings, current: false }]

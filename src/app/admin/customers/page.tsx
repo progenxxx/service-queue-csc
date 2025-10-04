@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import DashboardLayout from '@/components/layout/DashboardLayout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -236,6 +237,7 @@ const MobileUserCard = ({ user, companyName, onViewDetails, onDelete }: {
 };
 
 export default function AllCustomersPage() {
+  const router = useRouter();
   const { showToast, ToastContainer } = useToast();
   const [customers, setCustomers] = useState<CustomerData[]>([]);
   const [recentActivity, setRecentActivity] = useState<RecentActivity[]>([]);
@@ -1199,13 +1201,29 @@ export default function AllCustomersPage() {
                                 </TableCell>
                                 <TableCell className="text-center py-4 px-6 border-0">
                                   <div className="flex space-x-2 justify-center">
-                                    <Button 
-                                      variant="outline" 
+                                    <Button
+                                      variant="outline"
                                       size="sm"
                                       className="text-white bg-[#068d1f] border-[#068d1f] hover:bg-[#087055] hover:text-white hover:border-[#087055] px-4 py-2 text-xs font-medium rounded"
                                       onClick={() => handleViewUsers(customer)}
                                     >
                                       View Users
+                                    </Button>
+                                    <Button
+                                      variant="outline"
+                                      size="sm"
+                                      className="text-white bg-[#068d1f] border-[#068d1f] hover:bg-[#087055] hover:text-white hover:border-[#087055] px-4 py-2 text-xs font-medium rounded"
+                                      onClick={() => handleViewDetails(customer)}
+                                    >
+                                      View Details
+                                    </Button>
+                                    <Button
+                                      variant="outline"
+                                      size="sm"
+                                      className="text-white bg-[#068d1f] border-[#068d1f] hover:bg-[#087055] hover:text-white hover:border-[#087055] px-4 py-2 text-xs font-medium rounded"
+                                      onClick={() => router.push(`/admin/customers/${customer.id}/insured`)}
+                                    >
+                                      View Insured
                                     </Button>
                                   </div>
                                 </TableCell>

@@ -154,11 +154,27 @@ export const subTasks = pgTable('sub_tasks', {
   updatedAt: timestamp('updated_at').defaultNow().$onUpdateFn(() => new Date()).notNull(),
 });
 
+export const insuredAccounts = pgTable('insured_accounts', {
+  id: text('id').primaryKey().$defaultFn(() => createId()),
+  insuredName: text('insured_name').notNull(),
+  primaryContactName: text('primary_contact_name').notNull(),
+  contactEmail: text('contact_email').notNull(),
+  phone: text('phone').notNull(),
+  street: text('street').notNull(),
+  city: text('city').notNull(),
+  state: text('state').notNull(),
+  zipcode: text('zipcode').notNull(),
+  companyId: text('company_id').references(() => companies.id).notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().$onUpdateFn(() => new Date()).notNull(),
+});
+
 /* ---------------- Relations ---------------- */
 export const companiesRelations = relations(companies, ({ many }) => ({
   users: many(users),
   serviceRequests: many(serviceRequests),
   activityLogs: many(activityLogs),
+  insuredAccounts: many(insuredAccounts),
 }));
 
 export const usersRelations = relations(users, ({ one, many }) => ({
@@ -303,5 +319,12 @@ export const subTasksRelations = relations(subTasks, ({ one }) => ({
     fields: [subTasks.assignedById],
     references: [users.id],
     relationName: 'assignedBySubTasks',
+  }),
+}));
+
+export const insuredAccountsRelations = relations(insuredAccounts, ({ one }) => ({
+  company: one(companies, {
+    fields: [insuredAccounts.companyId],
+    references: [companies.id],
   }),
 }));

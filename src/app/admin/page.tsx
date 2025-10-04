@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import DashboardLayout from '@/components/layout/DashboardLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -376,9 +377,9 @@ export default function SuperAdminDashboard() {
                   <CardContent className="p-8 text-center">
                     <div className="text-gray-500">
                       No customers found.
-                      <a href="/admin/customers/manage" className="text-[#087055] hover:underline ml-1">
+                      <Link href="/admin/customers/manage" className="text-[#087055] hover:underline ml-1">
                         Add your first customer
-                      </a>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>
@@ -444,10 +445,10 @@ export default function SuperAdminDashboard() {
                   ) : (
                     <TableRow>
                       <TableCell colSpan={8} className="text-center py-8 text-gray-500">
-                        No customers found. 
-                        <a href="/admin/customers/manage" className="text-[#087055] hover:underline ml-1">
+                        No customers found.
+                        <Link href="/admin/customers/manage" className="text-[#087055] hover:underline ml-1">
                           Add your first customer
-                        </a>
+                        </Link>
                       </TableCell>
                     </TableRow>
                   )}
